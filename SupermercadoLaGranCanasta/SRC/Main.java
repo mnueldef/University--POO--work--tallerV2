@@ -16,9 +16,9 @@ public class Main {
         servicio.registrarProducto(new Electrodomestico("E-01", "Licuadora Pro", 220000, 4, 2, 12, "Oster"));
 
         // Registrar clientes
-        servicio.registrarCliente(new ClienteOcasional("1001", "Carlos Perez"));
-        servicio.registrarCliente(new ClienteFrecuente("1002", "Ana Gomez", 5000));
-        servicio.registrarCliente(new ClienteEmpresarial("1003", "Luis Torres", "900123456-1", "Tech SAS"));
+        servicio.registrarCliente(new ClienteOcasional("1", "James Rodriguez"));
+        servicio.registrarCliente(new ClienteFrecuente("2", "Vinicius Jr", 7));
+        servicio.registrarCliente(new ClienteEmpresarial("3", "Luis Suarez", "109876543-2", "Messi SAS"));
 
         try {
             // Venta 1: Cliente frecuente + Promocion 2x1 + Efectivo
