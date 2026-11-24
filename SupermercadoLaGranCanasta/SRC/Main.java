@@ -20,7 +20,7 @@ public class Main {
 
         // Registrar clientes
         servicio.registrarCliente(new ClienteOcasional("1", "James Rodriguez"));
-        servicio.registrarCliente(new ClienteFrecuente("2", "Vinicius Jr", 7));
+        servicio.registrarCliente(new ClienteFrecuente("2", "Vinicius Jr", 5000));
         servicio.registrarCliente(new ClienteEmpresarial("3", "Luis Suarez", "109876543-2", "Messi SAS"));
 
         try {
