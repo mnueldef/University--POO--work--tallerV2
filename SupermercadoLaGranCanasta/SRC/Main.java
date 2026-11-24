@@ -1,3 +1,6 @@
+//JUAN JOSE ZAPATA GUTIERREZ
+//MANUEL DAVID FERNANDEZ BEDOYA
+
 import java.time.LocalDate;
 
 // Clase principal demostracion
@@ -22,20 +25,20 @@ public class Main {
 
         try {
             // Venta 1: Cliente frecuente + Promocion 2x1 + Efectivo
-            Venta venta1 = servicio.crearVenta("1002", new Promocion2x1("A-01"));
+            Venta venta1 = servicio.crearVenta("2", new Promocion2x1("A-01"));
             servicio.agregarProductoAVenta(venta1, "A-01", 4);
             servicio.agregarProductoAVenta(venta1, "F-01", 2.5);
             Factura factura1 = servicio.finalizarVenta(venta1, new PagoEfectivo(50000));
             factura1.imprimir();
 
             // Venta 2: Cliente empresarial (descuento 5%) + Tarjeta
-            Venta venta2 = servicio.crearVenta("1003");
+            Venta venta2 = servicio.crearVenta("3");
             servicio.agregarProductoAVenta(venta2, "E-01", 3);
             Factura factura2 = servicio.finalizarVenta(venta2, new PagoTarjeta("4829"));
             factura2.imprimir();
 
             // Venta 3: Pago redimiendo puntos acumulados
-            Venta venta3 = servicio.crearVenta("1002");
+            Venta venta3 = servicio.crearVenta("2");
             servicio.agregarProductoAVenta(venta3, "P-01", 2);
             Factura factura3 = servicio.finalizarVenta(venta3, new PagoPuntos());
             factura3.imprimir();
@@ -49,7 +52,7 @@ public class Main {
 
         // Prueba excepcion producto vencido
         try {
-            Venta ventaVencida = servicio.crearVenta("1001");
+            Venta ventaVencida = servicio.crearVenta("1");
             servicio.agregarProductoAVenta(ventaVencida, "P-02", 1);
         } catch (ProductoVencidoException | StockInsuficienteException e) {
             System.out.println("\nExcepcion controlada (Vencimiento): " + e.getMessage());
@@ -57,7 +60,7 @@ public class Main {
 
         // Prueba excepcion stock insuficiente
         try {
-            Venta ventaSinStock = servicio.crearVenta("1001");
+            Venta ventaSinStock = servicio.crearVenta("1");
             servicio.agregarProductoAVenta(ventaSinStock, "E-01", 20);
         } catch (StockInsuficienteException | ProductoVencidoException e) {
             System.out.println("Excepcion controlada (Stock): " + e.getMessage());
@@ -65,7 +68,7 @@ public class Main {
 
         // Prueba excepcion venta vacia
         try {
-            Venta ventaVacia = servicio.crearVenta("1001");
+            Venta ventaVacia = servicio.crearVenta("1");
             servicio.finalizarVenta(ventaVacia, new PagoEfectivo(10000));
         } catch (VentaVaciaException | StockInsuficienteException | ProductoVencidoException e) {
             System.out.println("Excepcion controlada (Venta vacia): " + e.getMessage());
